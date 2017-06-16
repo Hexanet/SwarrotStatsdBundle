@@ -15,7 +15,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "Hexanet\\MonologExtraBundle\\": "src"
+      "Hexanet\\SwarrotStatsdBundle\\": "src"
     }
   },
   "require": {
