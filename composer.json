@@ -1,0 +1,24 @@
+{
+  "name": "hexanet/swarrot-statsd-bundle",
+  "description": "Swarrot processor to send data to stastd with M6Web/StatsdBundle",
+  "type": "bundle",
+  "keywords": [
+    "swarrot",
+    "statsd"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Floran Brutel",
+      "email": "f.brutel@hexanet.fr"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Hexanet\\MonologExtraBundle\\": "src"
+    }
+  },
+  "require": {
+    "swarrot/swarrot-bundle": "~1"
+  }
+}

@@ -1,0 +1,5 @@
+services:
+    hexanet_statsd_swarrot.processor.statsd:
+        class: Hexanet\SwarrotStatsdBundle\Configurator\StatsdProcessorConfigurator
+        arguments:
+            - "@event_dispatcher"
