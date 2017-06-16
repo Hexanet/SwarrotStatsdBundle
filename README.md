@@ -2,7 +2,7 @@
 
 [![Total Downloads](https://poser.pugx.org/hexanet/swarrot-statsd-bundle/downloads.png)](https://packagist.org/packages/hexanet/swarrot-statsd-bundle) [![Latest Unstable Version](https://poser.pugx.org/hexanet/swarrot-statsd-bundle/v/unstable.png)](https://packagist.org/packages/hexanet/swarrot-statsd-bundle)
 
-Symfony2 bundle with extra processors and logger to log request/response.
+Swarrot processor to send data to stastd with M6Web/StatsdBundle.
 
 ## Installation
 
@@ -12,6 +12,33 @@ composer require hexanet/swarrot-statsd-bundle
 
 ## Usage
 
+In your `config.yml` file, you could add a middleware processor which is going to send events to use my M6Web/StatsdBundle.
+
+```yaml
+swarrot:
+    consumers:
+        eligibility:
+            processor: eligibility.processor
+            middleware_stack: # order matter
+                - configurator: hexanet_swarrot_statsd.processor.statsd
+                  extras:
+                      name: eligibility
+                - configurator: swarrot.processor.ack
+                
+m6_statsd:
+    clients:
+        default:
+            servers: ['default']
+            events:
+                swarrot_statsd.message.success:
+                    increment: "si.eligibility-service.message.<messageName>.success"
+                    timing: "si.eligibility-service.message.<messageName>"
+                swarrot_statsd.message.error:
+                    increment: "si.eligibility-service.message.<messageName>.error"
+                    timing: "si.eligibility-service.message.<messageName>"
+                    immediate_send: true
+```
+
 
 
 ## Credits
@@ -20,4 +47,4 @@ Developed by [Hexanet](http://www.hexanet.fr/).
 
 ## License
 
-[MonologExtraBundle](https://github.com/Hexanet/SwarrotStatsdBundle) is licensed under the [MIT license](LICENSE).
+[SwarrotStatsdBundle](https://github.com/Hexanet/SwarrotStatsdBundle) is licensed under the [MIT license](LICENSE).
