@@ -18,13 +18,19 @@ In your `config.yml` file, you could add a middleware processor which is going t
 swarrot:
     consumers:
         eligibility:
-            processor: eligibility.processor
-            middleware_stack: # order matter
+            processor: processor.eligibility
+            middleware_stack:
                 - configurator: hexanet_swarrot_statsd.processor.statsd
                   extras:
                       name: eligibility
                 - configurator: swarrot.processor.ack
-                
+        populate_ticket:
+            processor: processor.populate_ticket
+            middleware_stack:
+                # no extra data with message, so the queue name is used instead
+                - configurator: hexanet_swarrot_statsd.processor.statsd
+                - configurator: swarrot.processor.ack
+
 m6_statsd:
     clients:
         default:
