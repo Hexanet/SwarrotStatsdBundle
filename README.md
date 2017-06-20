@@ -27,7 +27,7 @@ swarrot:
         populate_ticket:
             processor: processor.populate_ticket
             middleware_stack:
-                # no extra data with message, so the queue name is used instead
+                # no extra data with message name so the queue name is used instead
                 - configurator: hexanet_swarrot_statsd.processor.statsd
                 - configurator: swarrot.processor.ack
 
