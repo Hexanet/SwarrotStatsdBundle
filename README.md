@@ -2,7 +2,7 @@
 
 [![Total Downloads](https://poser.pugx.org/hexanet/swarrot-statsd-bundle/downloads.png)](https://packagist.org/packages/hexanet/swarrot-statsd-bundle) [![Latest Unstable Version](https://poser.pugx.org/hexanet/swarrot-statsd-bundle/v/unstable.png)](https://packagist.org/packages/hexanet/swarrot-statsd-bundle)
 
-Swarrot processor to send data to stastd with M6Web/StatsdBundle.
+[Swarrot](https://github.com/swarrot/SwarrotBundle) processor to send data to stastd with [M6Web/StatsdBundle](https://github.com/M6Web/StatsdBundle).
 
 ## Installation
 
