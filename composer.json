@@ -20,6 +20,7 @@
   },
   "require": {
     "php": "^7.1",
-    "swarrot/swarrot-bundle": "~1"
+    "swarrot/swarrot-bundle": "~1",
+    "m6web/statsd-bundle": "^2.14"
   }
 }
