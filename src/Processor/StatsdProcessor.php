@@ -42,7 +42,7 @@ class StatsdProcessor implements ConfigurableInterface
             $result = $this->processor->process($message, $options);
 
             $this->dispatchEvent(MessageEvent::SUCCESS, $options, $startTiming);
-        } catch (\Exception $e) {
+        } catch (\Throwable $e) {
             $this->dispatchEvent(MessageEvent::ERROR, $options, $startTiming);
 
             throw $e;
