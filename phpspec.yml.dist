@@ -1,0 +1,6 @@
+formatter.name: pretty
+
+suites:
+  default:
+    namespace: Hexanet\SwarrotStatsdBundle
+    psr4_prefix: Hexanet\SwarrotStatsdBundle

@@ -30,12 +30,12 @@ class MessageEvent extends Event
     private $timing;
 
     /**
-     * @param string     $messageName
-     * @param string     $connection
-     * @param string     $queue
-     * @param float|null $timing
+     * @param string $messageName
+     * @param string $connection
+     * @param string $queue
+     * @param float  $timing
      */
-    public function __construct(string $messageName, string $connection, string $queue, float $timing = null)
+    public function __construct(string $messageName, string $connection, string $queue, float $timing)
     {
         $this->messageName = $messageName;
         $this->connection = $connection;
@@ -70,7 +70,7 @@ class MessageEvent extends Event
     /**
      * @return float
      */
-    public function getTiming(): ? float
+    public function getTiming() : float
     {
         return $this->timing;
     }
