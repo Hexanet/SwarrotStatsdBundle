@@ -52,18 +52,14 @@ class StatsdProcessor implements ConfigurableInterface
     }
 
     /**
-     * @param string     $type
-     * @param array      $options
-     * @param float|null $startTiming
+     * @param string $type
+     * @param array  $options
+     * @param float  $startTiming
      */
-    private function dispatchEvent(string $type, array $options, float $startTiming = null)
+    private function dispatchEvent(string $type, array $options, float $startTiming)
     {
         $name = $options['name'] ?? $options['queue'];
-        $timing = null;
-
-        if ($startTiming) {
-            $timing = (gettimeofday(true) - $startTiming) * 1000;
-        }
+        $timing = (gettimeofday(true) - $startTiming) * 1000;
 
         $event = new MessageEvent($name, $options['connection'], $options['queue'], $timing);
 
